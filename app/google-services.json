@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "961729657447",
+    "firebase_url": "https://kitchen-helper-65607.firebaseio.com",
+    "project_id": "kitchen-helper-65607",
+    "storage_bucket": "kitchen-helper-65607.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961729657447:android:9d0f33f36d459e5279f2c2",
+        "android_client_info": {
+          "package_name": "com.finalproject.kitchenhelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "961729657447-4h5vcbrbsn0q88rm0pl2g94m4h5k58t3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.finalproject.kitchenhelper",
+            "certificate_hash": "6ed4814892420650c8feaacc3cf1388573770396"
+          }
+        },
+        {
+          "client_id": "961729657447-e3o4sgos9bshlccjdjt4f1oco9bj91nv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-Uo4iXCzLJQUmWR_qOFuVjRL8jH6pRnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "961729657447-e3o4sgos9bshlccjdjt4f1oco9bj91nv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
