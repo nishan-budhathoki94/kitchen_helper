@@ -7,12 +7,16 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_admin_view_roaster">View Roaster</string>
+    <string name="menu_create_roaster">Create/Edit Roaster</string>
+    <string name="menu_create_user">Create Employee Account</string>
+    <string name="menu_set_availability">Set My Availability</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="name">Name</string>
+    <string name="repeat_email">Repeat Email</string>
+    <string name="phone">Phone</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="menu_logout">Log Out</string>
     <string name="title_activity_login">LogIn</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -26,4 +30,10 @@
     <string name="title_activity_home">Kitchen Helper</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forgotPassword"> Forgot or Change Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_newUser">Create User</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
