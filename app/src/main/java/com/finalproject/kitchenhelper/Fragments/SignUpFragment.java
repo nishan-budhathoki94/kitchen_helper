@@ -86,7 +86,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
-                                Log.d("Firebase", "createUserWithEmail:success");
+                                Log.d("Firebase", "createUserWithEmail:success"+mAuth.getCurrentUser().getEmail());
                                 mAuth.getCurrentUser().sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -97,10 +97,11 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
                                                     new Response.Listener<String>() {
                                                         @Override
                                                         public void onResponse(String response) {
-                                                            Intent loginActivity = new Intent(getContext(), Login.class);
-                                                            progressbar.setVisibility(View.GONE);
-                                                            getActivity().finish();
-                                                            startActivity(loginActivity);
+                                                            textInputName.getEditText().setText("");
+                                                            textInputEmail.getEditText().setText("");
+                                                            textInputConfirmEmail.getEditText().setText("");
+                                                            textInputPassword.getEditText().setText("");
+                                                            textInputPhone.getEditText().setText("");
                                                         }
                                                     },
 
@@ -203,10 +204,10 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
             progressbar.setVisibility(View.INVISIBLE);
             return false;
         }
-//        else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
-//            textInputPassword.setError("Password too weak");
-//            return false;
-//        }
+        else if (passwordInput.length()<6) {
+            textInputPassword.setError("Password too weak(at least 6 characters)");
+            return false;
+        }
         else {
             textInputPassword.setError(null);
             return true;
