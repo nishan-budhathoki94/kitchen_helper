@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -15,7 +17,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -28,15 +30,17 @@ import java.util.Map;
 
 public class Home extends AppCompatActivity {
     //instantiate to avoid null exception
-    private String type = "customer";
+    private String type = "employee", name;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
+    private ProgressBar progressBar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        progressBar = findViewById(R.id.progressBarHome);
         int multiFlag = View.SYSTEM_UI_FLAG_LOW_PROFILE
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -51,9 +55,12 @@ public class Home extends AppCompatActivity {
         if (!hasInternet())
         {
             noInternetLayout.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.INVISIBLE);
+
         }
         //if user was previously logged in
         if( mUser!= null) {
+            Log.d("Home", "use was logged in");
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -96,17 +103,18 @@ public class Home extends AppCompatActivity {
     }
 
     public void setUpUser(){
-        String server_url = "http://everestelectricals.com.au/kitchen_helper/getuser.php";
-        StringRequest request = new StringRequest(Request.Method.POST, server_url,
-                new Response.Listener<String>() {
+        String server_url = "https://everestelectricals.com.au/kitchen_helper/getuser.php";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, server_url,null,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(String  response) {
+                    public void onResponse(JSONObject  response) {
                         try {
-                            Log.d("jsonres", "onResponse: "+response);
-                            JSONObject jo = new JSONObject(response);
-                            JSONArray jsonArray = jo.getJSONArray("data");
-                            JSONObject jsonObject = jsonArray.getJSONObject(0);
-                            type = jsonObject.getString("type").trim();
+                            Log.d("home", "onResponse: "+response);
+                            JSONArray array = response.getJSONArray("user");
+                            JSONObject jo = array.getJSONObject(0);
+                            type = jo.getString("type").trim();
+                            name = jo.getString("name").trim();
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -114,12 +122,16 @@ public class Home extends AppCompatActivity {
 
                         if (type.equalsIgnoreCase(Constants.TYPE_ADMIN)){
                             Intent adminPanel = new Intent(Home.this, MainActivityAdmin.class);
+                            adminPanel.putExtra("name",name);
+                            adminPanel.putExtra("email",mUser.getEmail());
                             adminPanel.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             finish();
                             startActivity(adminPanel);
                         }
                         else{
-                            Intent employee = new Intent(Home.this, MainActivityAdmin.class);
+                            Intent employee = new Intent(Home.this, MainActivityStaff.class);
+                            employee.putExtra("name",name);
+                            employee.putExtra("email",mUser.getEmail());
                             employee.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             finish();
                             startActivity(employee);
@@ -130,6 +142,7 @@ public class Home extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d("Volley", "Cannot connect to database");
+                        Toast.makeText(Home.this,"Error in database connection",Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override

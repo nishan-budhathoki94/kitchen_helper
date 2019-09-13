@@ -125,6 +125,8 @@ public class Login extends AppCompatActivity {
                                                    if (type.equalsIgnoreCase(Constants.TYPE_ADMIN)){
                                                         progressbar.setVisibility(View.GONE);
                                                         Intent adminPanel = new Intent(Login.this, MainActivityAdmin.class);
+                                                        adminPanel.putExtra("name",name);
+                                                        adminPanel.putExtra("email",email);
                                                         adminPanel.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                         finish();
                                                         startActivity(adminPanel);
@@ -132,6 +134,8 @@ public class Login extends AppCompatActivity {
                                                     else {
                                                         progressbar.setVisibility(View.GONE);
                                                         Intent employee = new Intent(Login.this, MainActivityStaff.class);
+                                                        employee.putExtra("name",name);
+                                                        employee.putExtra("email",email);
                                                         employee.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                                         finish();
                                                         startActivity(employee);

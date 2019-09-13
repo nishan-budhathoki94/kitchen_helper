@@ -1,4 +1,4 @@
-package com.finalproject.kitchenhelper;
+package com.finalproject.kitchenhelper.Fragments;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,6 +11,7 @@ import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -19,6 +20,10 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.finalproject.kitchenhelper.Constants;
+import com.finalproject.kitchenhelper.Login;
+import com.finalproject.kitchenhelper.R;
+import com.finalproject.kitchenhelper.VolleySingleton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -29,11 +34,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
-public class SignUpFragment extends Fragment {
+public class SignUpFragment extends Fragment implements View.OnClickListener {
 
     private TextInputLayout textInputEmail,textInputPassword,textInputConfirmEmail,textInputPhone,textInputName;
     private String name,phone,email,password;
     ProgressBar progressbar;
+    Button buttonSignUp;
     private FirebaseAuth mAuth;
     private View view;
     private String server_url = "https://everestelectricals.com.au/kitchen_helper/signup.php";
@@ -49,6 +55,13 @@ public class SignUpFragment extends Fragment {
         textInputPhone = view.findViewById(R.id.textInputLayoutSignUpPhone);
         textInputName = view.findViewById(R.id.textInputLayoutSignUpName);
         progressbar = view.findViewById(R.id.progressBarSignUp);
+        buttonSignUp = view.findViewById(R.id.buttonCreateUser);
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signUpBtnClick();
+            }
+        });
         return view;
 
     }
@@ -56,10 +69,11 @@ public class SignUpFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     //call php file from the server to create new user
-    public void signUpBtnClick(final View v) {
+    public void signUpBtnClick() {
         if(validatePhone()  && validatePassword() && validateConfirmEmail() && validateEmail()  &&  validateName()  )  {
             progressbar.setVisibility(View.VISIBLE);
             name = textInputName.getEditText().getText().toString().trim();
@@ -67,7 +81,7 @@ public class SignUpFragment extends Fragment {
             password = textInputPassword.getEditText().getText().toString().trim();
             phone = textInputPhone.getEditText().getText().toString().trim();
             mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener((Executor) this, new OnCompleteListener<AuthResult>() {
+                    .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
@@ -77,7 +91,7 @@ public class SignUpFragment extends Fragment {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            Toast.makeText(v.getContext(),"Registration Successful, Please check your email for verification link!",Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getContext(),"Registration Successful, Please check your email for verification link!",Toast.LENGTH_LONG).show();
                                             //Inject Sql with the data using post method
                                             StringRequest request = new StringRequest(Request.Method.POST, server_url,
                                                     new Response.Listener<String>() {
@@ -125,11 +139,6 @@ public class SignUpFragment extends Fragment {
                                 Log.w("Firebase", "createUserWithEmail:failure", task.getException());
                                 Toast.makeText(getActivity(), "Email "+email+" is already registered.",
                                         Toast.LENGTH_LONG).show();
-                                textInputName.getEditText().setText("");
-                                textInputEmail.getEditText().setText("");
-                                textInputConfirmEmail.getEditText().setText("");
-                                textInputPassword.getEditText().setText("");
-                                textInputPhone.getEditText().setText("");
                             }
                         }
                     });
@@ -232,5 +241,10 @@ public class SignUpFragment extends Fragment {
             textInputPhone.setError(null);
             return true;
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

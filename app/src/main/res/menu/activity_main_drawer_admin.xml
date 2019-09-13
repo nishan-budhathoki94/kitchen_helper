@@ -6,13 +6,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_admin_view_roaster"
-            android:title="@string/menu_admin_view_roaster" />
+            android:title="@string/menu_admin_view_roster" />
         <item
             android:id="@+id/nav_admin_create_roaster"
-            android:title="@string/menu_create_roaster" />
+            android:title="@string/menu_create_roster" />
         <item
             android:id="@+id/nav_admin_create_user"
             android:title="@string/menu_create_user" />
+        <item
+            android:id="@+id/nav_admin_change_password"
+            android:title="@string/change_password" />
         <item
             android:id="@+id/nav_admin_logout"
             android:title="@string/menu_logout" />
