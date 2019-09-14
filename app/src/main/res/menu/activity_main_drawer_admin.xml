@@ -5,12 +5,16 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_admin_view_roaster"
+            android:title="View Roster" />
+        <item
             android:id="@+id/nav_admin_create_roaster"
+            android:title="Create Roster"
             android:icon="@drawable/ic_create_black_24dp" />
         <item
             android:id="@+id/nav_admin_create_user"
             android:icon="@drawable/ic_add_black_24dp"
-            android:title="@string/menu_create_user" />
+            android:title="Add User" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_video_library_black_24dp"
@@ -22,7 +26,7 @@
         <item
             android:id="@+id/nav_admin_change_password"
             android:icon="@drawable/ic_settings_applications_black_24dp"
-            android:title="@string/change_password" />
+            android:title="Change password" />
         <item
             android:id="@+id/nav_admin_logout"
             android:icon="@drawable/ic_logout"
