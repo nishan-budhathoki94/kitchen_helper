@@ -9,15 +9,26 @@
             android:title="@string/menu_admin_view_roster" />
         <item
             android:id="@+id/nav_admin_create_roaster"
+            android:icon="@drawable/ic_create_black_24dp"
             android:title="@string/menu_create_roster" />
         <item
             android:id="@+id/nav_admin_create_user"
+            android:icon="@drawable/ic_add_black_24dp"
             android:title="@string/menu_create_user" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_video_library_black_24dp"
+            android:title="Upload Prep Videos" />
+        <item
+            android:id="@+id/nav_tools"
+            android:icon="@drawable/ic_file_upload_black_24dp"
+            android:title="Upload Stock Info" />
         <item
             android:id="@+id/nav_admin_change_password"
             android:title="@string/change_password" />
         <item
             android:id="@+id/nav_admin_logout"
+            android:icon="@drawable/ic_logout"
             android:title="@string/menu_logout" />
     </group>
 
