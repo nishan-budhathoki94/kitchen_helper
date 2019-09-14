@@ -18,6 +18,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -104,19 +105,22 @@ public class Home extends AppCompatActivity {
 
     public void setUpUser(){
         String server_url = "https://everestelectricals.com.au/kitchen_helper/getuser.php";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, server_url,null,
-                new Response.Listener<JSONObject>() {
+        StringRequest request = new StringRequest(Request.Method.POST, server_url,
+                new Response.Listener<String>() {
+
                     @Override
-                    public void onResponse(JSONObject  response) {
+                    public void onResponse(String response) {
                         try {
                             Log.d("home", "onResponse: "+response);
-                            JSONArray array = response.getJSONArray("user");
+                            JSONObject jsonObject = new JSONObject(response);
+                            JSONArray array = jsonObject.getJSONArray("user");
                             JSONObject jo = array.getJSONObject(0);
                             type = jo.getString("type").trim();
                             name = jo.getString("name").trim();
 
 
                         } catch (JSONException e) {
+                            Toast.makeText(Home.this,"Error in database connection",Toast.LENGTH_SHORT).show();
                             e.printStackTrace();
                         }
 

@@ -43,7 +43,7 @@ public class MainActivityStaff extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ViewRosterAdminFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ViewRosterAdminFragment()).commit();
     }
 
     @Override
@@ -66,12 +66,12 @@ public class MainActivityStaff extends AppCompatActivity
 
         if (id == R.id.nav_admin_view_roaster) {
             // Handle the camera action
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ViewRosterAdminFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ViewRosterAdminFragment()).commit();
         } else if (id == R.id.nav_staff_change_password) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ForgotPasswordFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ForgotPasswordFragment()).commit();
 
         } else if (id == R.id.nav_staff_set_availability) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ViewRosterAdminFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ViewRosterAdminFragment()).commit();
 
         } else if (id == R.id.nav_staff_logout) {
             FirebaseAuth.getInstance().signOut();

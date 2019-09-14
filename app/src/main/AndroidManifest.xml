@@ -13,13 +13,16 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivityAdmin"
-            android:label="@string/title_activity_main"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".ForgotPassword" />
         <activity
             android:name=".Login"
             android:label="@string/btn_login">
         </activity>
+        <activity android:name=".MainActivityStaff"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Home"
             android:configChanges="orientation|keyboardHidden|screenSize"
