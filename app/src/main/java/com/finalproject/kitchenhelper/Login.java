@@ -16,6 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -104,14 +105,15 @@ public class Login extends AppCompatActivity {
                                 //check if user email is verified
                                 if(user.isEmailVerified()) {
                                     String server_url = "https://everestelectricals.com.au/kitchen_helper/getuser.php";
-                                    JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, server_url,null,
-                                            new Response.Listener<JSONObject>() {
+                                    StringRequest request = new StringRequest(Request.Method.POST, server_url,
+                                            new Response.Listener<String>() {
 
                                                 @Override
-                                                public void onResponse(JSONObject response) {
+                                                public void onResponse(String response) {
                                                     try {
                                                         Log.d("json response", "type"+response);
-                                                        JSONArray array = response.getJSONArray("user");
+                                                        JSONObject jsonObject = new JSONObject(response);
+                                                        JSONArray array = jsonObject.getJSONArray("user");
                                                         JSONObject jo = array.getJSONObject(0);
                                                         name = jo.getString("name").trim();
                                                         phone = jo.getString("phone").trim();
