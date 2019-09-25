@@ -12,7 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.finalproject.kitchenhelper.Fragments.ForgotPasswordFragment;
+import com.finalproject.kitchenhelper.Fragments.ChangePasswordFragment;
 import com.finalproject.kitchenhelper.Fragments.ViewRosterAdminFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,7 +68,7 @@ public class MainActivityStaff extends AppCompatActivity
             // Handle the camera action
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ViewRosterAdminFragment()).commit();
         } else if (id == R.id.nav_staff_change_password) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ForgotPasswordFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ChangePasswordFragment()).commit();
 
         } else if (id == R.id.nav_staff_set_availability) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ViewRosterAdminFragment()).commit();

@@ -35,6 +35,9 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="old_password_again">Repeat Old Password</string>
+    <string name="new_password">New Password</string>
     <string name="forgotPassword"> Forgot or Change Password</string>
     <string name="btn_login">Login</string>
     <string name="btn_newUser">Create User</string>

@@ -12,7 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.finalproject.kitchenhelper.Fragments.ForgotPasswordFragment;
+import com.finalproject.kitchenhelper.Fragments.ChangePasswordFragment;
 import com.finalproject.kitchenhelper.Fragments.SignUpFragment;
 import com.finalproject.kitchenhelper.Fragments.ViewRosterAdminFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -73,7 +73,7 @@ public class MainActivityAdmin extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SignUpFragment()).commit();
 
         }else if (id == R.id.nav_admin_change_password) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ForgotPasswordFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ChangePasswordFragment()).commit();
         }
         else if (id == R.id.nav_admin_logout) {
             FirebaseAuth.getInstance().signOut();
