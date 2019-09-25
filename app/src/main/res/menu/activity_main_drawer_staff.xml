@@ -12,9 +12,15 @@
             android:title="@string/menu_set_availability" />
         <item
             android:id="@+id/nav_staff_change_password"
+            android:icon="@drawable/ic_settings_applications_black_24dp"
             android:title="@string/change_password" />
         <item
+            android:id="@+id/nav_staff_edit_details"
+            android:icon="@drawable/ic_settings_applications_black_24dp"
+            android:title="@string/update" />
+        <item
             android:id="@+id/nav_staff_logout"
+            android:icon="@drawable/ic_logout"
             android:title="@string/menu_logout" />
     </group>
 

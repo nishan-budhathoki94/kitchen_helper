@@ -28,6 +28,10 @@
             android:icon="@drawable/ic_settings_applications_black_24dp"
             android:title="Change password" />
         <item
+            android:id="@+id/nav_admin_edit_details"
+            android:icon="@drawable/ic_settings_applications_black_24dp"
+            android:title="@string/update" />
+        <item
             android:id="@+id/nav_admin_logout"
             android:icon="@drawable/ic_logout"
             android:title="@string/menu_logout" />

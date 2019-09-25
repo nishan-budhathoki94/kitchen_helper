@@ -13,6 +13,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.finalproject.kitchenhelper.Fragments.ChangePasswordFragment;
+import com.finalproject.kitchenhelper.Fragments.EditDeatilsFragment;
 import com.finalproject.kitchenhelper.Fragments.ViewRosterAdminFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -73,7 +74,10 @@ public class MainActivityStaff extends AppCompatActivity
         } else if (id == R.id.nav_staff_set_availability) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ViewRosterAdminFragment()).commit();
 
-        } else if (id == R.id.nav_staff_logout) {
+        }  else if (id == R.id.nav_staff_edit_details) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new EditDeatilsFragment()).commit();
+        }
+        else if (id == R.id.nav_staff_logout) {
             FirebaseAuth.getInstance().signOut();
             Intent intentLogout = new Intent(this, Login.class);
             intentLogout.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
