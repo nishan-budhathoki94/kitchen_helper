@@ -31,6 +31,21 @@
     <string name="login_failed">"Login failed"</string>
     <string name="update">Update My Details</string>
 
+    <string name="sunday">Sunday</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="shift_start">Shift Start</string>
+    <string name="shift_end">Shift End</string>
+    <string name="day">Days</string>
+    <string name="full_day">Available</string>
+    <string name="from">From</string>
+    <string name="to">TO</string>
+    <string name="select_time"><u>Select Time</u></string>
+
     <string name="title_activity_home">Kitchen Helper</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>

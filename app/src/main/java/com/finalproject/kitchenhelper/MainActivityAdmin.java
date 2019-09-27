@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.finalproject.kitchenhelper.Fragments.ChangePasswordFragment;
 import com.finalproject.kitchenhelper.Fragments.EditDeatilsFragment;
+import com.finalproject.kitchenhelper.Fragments.SetAvailabilityFragment;
 import com.finalproject.kitchenhelper.Fragments.SignUpFragment;
 import com.finalproject.kitchenhelper.Fragments.ViewRosterAdminFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -22,6 +24,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MainActivityAdmin extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     TextView displayName, displayEmail;
+    private long backPressed;
+    private Toast backToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +58,19 @@ public class MainActivityAdmin extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (backPressed + 2000 > System.currentTimeMillis()){
+                backToast.cancel();
+                super.onBackPressed();
+                return;
+            }
+            else {
+                backToast= Toast.makeText(getBaseContext(),"Press back again to exit",Toast.LENGTH_SHORT);
+                backToast.show();
+            }
+            backPressed = System.currentTimeMillis();
         }
     }
+
 
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -78,6 +92,9 @@ public class MainActivityAdmin extends AppCompatActivity
         }
         else if (id == R.id.nav_admin_edit_details) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new EditDeatilsFragment()).commit();
+        }
+        else if (id == R.id.nav_admin_set_availability) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SetAvailabilityFragment()).commit();
         }
         else if (id == R.id.nav_admin_logout) {
             FirebaseAuth.getInstance().signOut();

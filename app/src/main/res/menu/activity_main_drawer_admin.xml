@@ -24,6 +24,9 @@
             android:icon="@drawable/ic_file_upload_black_24dp"
             android:title="Upload Stock Info" />
         <item
+            android:id="@+id/nav_admin_set_availability"
+            android:title="@string/menu_set_availability" />
+        <item
             android:id="@+id/nav_admin_change_password"
             android:icon="@drawable/ic_settings_applications_black_24dp"
             android:title="Change password" />
