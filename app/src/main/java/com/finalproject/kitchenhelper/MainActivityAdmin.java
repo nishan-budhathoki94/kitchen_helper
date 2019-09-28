@@ -17,6 +17,7 @@ import com.finalproject.kitchenhelper.Fragments.ChangePasswordFragment;
 import com.finalproject.kitchenhelper.Fragments.EditDeatilsFragment;
 import com.finalproject.kitchenhelper.Fragments.SetAvailabilityFragment;
 import com.finalproject.kitchenhelper.Fragments.SignUpFragment;
+import com.finalproject.kitchenhelper.Fragments.UserListFragment;
 import com.finalproject.kitchenhelper.Fragments.ViewRosterAdminFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -82,7 +83,7 @@ public class MainActivityAdmin extends AppCompatActivity
         if (id == R.id.nav_admin_view_roaster) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ViewRosterAdminFragment()).commit();
         } else if (id == R.id.nav_admin_create_roaster) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ViewRosterAdminFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UserListFragment()).commit();
 
         } else if(id == R.id.nav_admin_create_user) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SignUpFragment()).commit();

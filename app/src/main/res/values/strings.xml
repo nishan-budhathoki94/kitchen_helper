@@ -30,6 +30,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="update">Update My Details</string>
+    <string name="delete_user">Delete User</string>
+    <string name="view_availability">View Availability</string>
 
     <string name="sunday">Sunday</string>
     <string name="monday">Monday</string>
@@ -42,8 +44,8 @@
     <string name="shift_end">Shift End</string>
     <string name="day">Days</string>
     <string name="full_day">Available</string>
-    <string name="from">From</string>
-    <string name="to">TO</string>
+    <string name="from">START</string>
+    <string name="to">END</string>
     <string name="select_time"><u>Select Time</u></string>
 
     <string name="title_activity_home">Kitchen Helper</string>
