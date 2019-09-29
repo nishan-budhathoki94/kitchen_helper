@@ -12,11 +12,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.finalproject.kitchenhelper.Fragments.CreateRosterFragment;
+import com.finalproject.kitchenhelper.Fragments.SetAvailabilityFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserListViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final UserListViewHolder holder, int position) {
         final Users user = users.get(position);
         holder.name.setText(user.getName());
         holder.email.setText(user.getEmail());
@@ -56,6 +58,30 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
                         .commit();
             }
         });
+
+        holder.viewAvailbility.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SetAvailabilityFragment viewAvailabilityFragment = new SetAvailabilityFragment();
+                AppCompatActivity activityViewAvailability = (AppCompatActivity) v.getContext();
+                Bundle argsViewOnly = new Bundle();
+                argsViewOnly.putBoolean("isViewOnly",true);
+                argsViewOnly.putString("name",user.getName());
+                viewAvailabilityFragment.setArguments(argsViewOnly);
+                activityViewAvailability.getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, viewAvailabilityFragment, "viewAvailabilityFragment")
+                        .addToBackStack(null)
+                        .commit();
+
+            }
+        });
+
+        holder.deleteUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.singleUserLayout.setVisibility(View.GONE);
+            }
+        });
     }
 
     @Override
@@ -65,6 +91,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
 
     public class UserListViewHolder extends RecyclerView.ViewHolder{
         private TextView name,email;
+        private ConstraintLayout singleUserLayout;
         private Button deleteUser,createRoster,viewAvailbility;
         private ProgressBar progressBar;
 
@@ -76,6 +103,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
             createRoster = itemView.findViewById(R.id.buttonCreateRoster);
             progressBar = itemView.findViewById(R.id.progressBarRow);
             viewAvailbility = itemView.findViewById(R.id.buttonViewAvailability);
+            singleUserLayout = itemView.findViewById(R.id.singleUserLayout);
         }
     }
 }

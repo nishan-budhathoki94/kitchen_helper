@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,8 @@ public class SetAvailabilityFragment extends Fragment {
     private CheckBox alldaySun,alldayMon,alldayTue,alldayWed,alldayThurs,allDayFri,allDaySat;
     private ProgressBar progressBar;
     private Button buttonSetAvailability;
+    private TextView userName;
+    private Bundle args;
     private boolean insertIntoDB = true;
     private FirebaseAuth mAuth;
     private View view;
@@ -49,6 +52,17 @@ public class SetAvailabilityFragment extends Fragment {
         setCheckboxes();
         progressBar = view.findViewById(R.id.progressBarSetAvailability);
         buttonSetAvailability = view.findViewById(R.id.buttonSetAvailability);
+        userName = view.findViewById(R.id.textViewNameOfStaff);
+        args = this.getArguments();
+        if (args!= null) {
+            if (args.getBoolean("isViewOnly")) {
+                buttonSetAvailability.setVisibility(View.INVISIBLE);
+            }
+            if (!args.getString("name").isEmpty()) {
+                userName.setText("Displaying Availability of:"+args.getString("name"));
+                userName.setVisibility(View.VISIBLE);
+            }
+        }
         mAuth = FirebaseAuth.getInstance();
         getCurrentAvailability();
         buttonSetAvailability.setOnClickListener(new View.OnClickListener() {

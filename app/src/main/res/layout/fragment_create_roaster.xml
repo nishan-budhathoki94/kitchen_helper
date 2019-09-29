@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <TableLayout
+        android:id="@+id/tableLayout2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:stretchColumns="*"
@@ -16,12 +17,14 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp">
 
             <TextView
-            android:text="@string/day"
-            android:textAlignment="center"
-            android:textStyle="bold" />
+                android:text="@string/day"
+                android:textAlignment="center"
+                android:textStyle="bold" />
 
             <TextView
                 android:text="@string/from"
@@ -37,170 +40,240 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
             <TextView
                 android:text="@string/sunday"
                 android:textAlignment="center"
                 android:textStyle="bold" />
+
             <TextView
-                android:text="@string/select_time"
                 android:id="@+id/sundayStartAdmin"
                 android:clickable="true"
                 android:focusable="true"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
-            <TextView
                 android:text="@string/select_time"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
                 android:id="@+id/sundayEndAdmin"
                 android:clickable="true"
                 android:focusable="true"
+                android:text="@string/select_time"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp">
 
             <TextView
                 android:text="@string/monday"
                 android:textAlignment="center"
                 android:textStyle="bold" />
+
             <TextView
-                android:text="@string/select_time"
                 android:id="@+id/mondayStartAdmin"
                 android:clickable="true"
                 android:focusable="true"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
-            <TextView
                 android:text="@string/select_time"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
                 android:id="@+id/mondayEndAdmin"
                 android:clickable="true"
                 android:focusable="true"
+                android:text="@string/select_time"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
             <TextView
                 android:text="@string/tuesday"
                 android:textAlignment="center"
                 android:textStyle="bold" />
+
             <TextView
-                android:text="@string/select_time"
                 android:id="@+id/tuesdayStartAdmin"
                 android:clickable="true"
                 android:focusable="true"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
-            <TextView
                 android:text="@string/select_time"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
                 android:id="@+id/tuesdayEndAdmin"
                 android:clickable="true"
                 android:focusable="true"
+                android:text="@string/select_time"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
             <TextView
                 android:text="@string/wednesday"
                 android:textAlignment="center"
                 android:textStyle="bold" />
+
             <TextView
-                android:text="@string/select_time"
                 android:id="@+id/wednesdayStartAdmin"
                 android:clickable="true"
                 android:focusable="true"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
-            <TextView
                 android:text="@string/select_time"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
                 android:id="@+id/wednesdayEndAdmin"
                 android:clickable="true"
                 android:focusable="true"
+                android:text="@string/select_time"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
             <TextView
                 android:text="@string/thursday"
                 android:textAlignment="center"
                 android:textStyle="bold" />
+
             <TextView
-                android:text="@string/select_time"
                 android:id="@+id/thursdayStartAdmin"
                 android:clickable="true"
                 android:focusable="true"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
-            <TextView
                 android:text="@string/select_time"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
                 android:id="@+id/thursdayEndAdmin"
                 android:clickable="true"
                 android:focusable="true"
+                android:text="@string/select_time"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
             <TextView
                 android:text="@string/friday"
                 android:textAlignment="center"
                 android:textStyle="bold" />
+
             <TextView
-                android:text="@string/select_time"
                 android:id="@+id/fridayStartAdmin"
                 android:clickable="true"
                 android:focusable="true"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
-            <TextView
                 android:text="@string/select_time"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
                 android:id="@+id/fridayEndAdmin"
                 android:clickable="true"
                 android:focusable="true"
+                android:text="@string/select_time"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
 
             <TextView
                 android:text="@string/saturday"
                 android:textAlignment="center"
                 android:textStyle="bold" />
+
             <TextView
-                android:text="@string/select_time"
                 android:id="@+id/saturdayStartAdmin"
                 android:clickable="true"
                 android:focusable="true"
-                android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
-            <TextView
                 android:text="@string/select_time"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
                 android:id="@+id/saturdayEndAdmin"
                 android:clickable="true"
                 android:focusable="true"
+                android:text="@string/select_time"
                 android:textAlignment="center"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary" />
         </TableRow>
     </TableLayout>
+
+    <TextView
+        android:id="@+id/textViewCreateRoasterUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBarCreateRoster"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewCreateRoasterUserName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tableLayout2" />
+
+    <Button
+        android:id="@+id/buttonCreateRoster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/done"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
