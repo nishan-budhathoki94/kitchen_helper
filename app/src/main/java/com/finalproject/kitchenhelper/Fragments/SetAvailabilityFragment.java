@@ -40,7 +40,6 @@ public class SetAvailabilityFragment extends Fragment {
     private TextView userName;
     private Bundle args;
     private boolean insertIntoDB = true;
-    private boolean allowBackPress = false;
     private FirebaseAuth mAuth;
     private View view;
     private String server_url_get = "https://everestelectricals.com.au/kitchen_helper/get_availability.php";
@@ -56,7 +55,6 @@ public class SetAvailabilityFragment extends Fragment {
         userName = view.findViewById(R.id.textViewNameOfStaff);
         args = this.getArguments();
         if (args!= null) {
-            allowBackPress = true;
             if (args.getBoolean("isViewOnly")) {
                 buttonSetAvailability.setVisibility(View.INVISIBLE);
             }
@@ -213,8 +211,5 @@ public class SetAvailabilityFragment extends Fragment {
         }
     }
 
-    public boolean allowBackPress() {
-        return allowBackPress;
-    }
 
 }

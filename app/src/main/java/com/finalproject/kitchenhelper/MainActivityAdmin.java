@@ -14,7 +14,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.finalproject.kitchenhelper.Fragments.ChangePasswordFragment;
-import com.finalproject.kitchenhelper.Fragments.CreateRosterFragment;
 import com.finalproject.kitchenhelper.Fragments.EditDetailsFragment;
 import com.finalproject.kitchenhelper.Fragments.SetAvailabilityFragment;
 import com.finalproject.kitchenhelper.Fragments.SignUpFragment;
@@ -59,12 +58,9 @@ public class MainActivityAdmin extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout_admin);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            SetAvailabilityFragment availabilityFragment = (SetAvailabilityFragment) getSupportFragmentManager().findFragmentByTag(Constants.DialogFragment);
-            if (availabilityFragment.allowBackPress()) {
-                super.onBackPressed();
-            }
-            else if (backPressed + 2000 > System.currentTimeMillis()){
+        }
+        else{
+            if (backPressed + 2000 > System.currentTimeMillis()){
                 backToast.cancel();
                 super.onBackPressed();
                 return;
