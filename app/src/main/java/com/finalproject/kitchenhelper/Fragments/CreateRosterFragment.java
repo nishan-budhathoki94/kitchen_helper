@@ -2,6 +2,7 @@ package com.finalproject.kitchenhelper.Fragments;
 
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +16,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.finalproject.kitchenhelper.Constants;
-import com.finalproject.kitchenhelper.MainActivityAdmin;
 import com.finalproject.kitchenhelper.R;
 import com.finalproject.kitchenhelper.VolleySingleton;
 
@@ -34,7 +33,6 @@ import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -290,7 +288,7 @@ public class CreateRosterFragment extends Fragment {
 
     public String addStartEnd(TextView start, TextView end) {
         if (start.getCurrentTextColor() == end.getCurrentTextColor() && start.getCurrentTextColor() == getResources().getColor(R.color.colorAccent) ) {
-            return start.getText().toString()+end.getText().toString();
+            return start.getText().toString()+"-"+end.getText().toString();
         }
         else if (start.getText().toString().equalsIgnoreCase(Constants.SELECT_TIME)) {
             return Constants.DAY_OFF;
@@ -306,7 +304,7 @@ public class CreateRosterFragment extends Fragment {
         }
         else {
             start.setText(wholeString.substring(0,8));
-            end.setText(wholeString.substring(8,16));
+            end.setText(wholeString.substring(9,17));
             start.setTextColor(getResources().getColor(R.color.colorAccent));
             end.setTextColor(getResources().getColor(R.color.colorAccent));
         }

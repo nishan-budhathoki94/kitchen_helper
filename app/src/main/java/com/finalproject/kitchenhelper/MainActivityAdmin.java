@@ -14,6 +14,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.finalproject.kitchenhelper.Fragments.ChangePasswordFragment;
+import com.finalproject.kitchenhelper.Fragments.CreateRosterFragment;
 import com.finalproject.kitchenhelper.Fragments.EditDetailsFragment;
 import com.finalproject.kitchenhelper.Fragments.SetAvailabilityFragment;
 import com.finalproject.kitchenhelper.Fragments.SignUpFragment;
@@ -50,7 +51,7 @@ public class MainActivityAdmin extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ViewRosterAdminFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UserListFragment()).commit();
     }
 
     @Override
