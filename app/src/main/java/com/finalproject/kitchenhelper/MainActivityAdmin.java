@@ -14,7 +14,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.finalproject.kitchenhelper.Fragments.ChangePasswordFragment;
-import com.finalproject.kitchenhelper.Fragments.EditDeatilsFragment;
+import com.finalproject.kitchenhelper.Fragments.EditDetailsFragment;
 import com.finalproject.kitchenhelper.Fragments.SetAvailabilityFragment;
 import com.finalproject.kitchenhelper.Fragments.SignUpFragment;
 import com.finalproject.kitchenhelper.Fragments.UserListFragment;
@@ -59,7 +59,11 @@ public class MainActivityAdmin extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (backPressed + 2000 > System.currentTimeMillis()){
+            SetAvailabilityFragment availabilityFragment = (SetAvailabilityFragment) getSupportFragmentManager().findFragmentByTag(Constants.DialogFragment);
+            if (availabilityFragment.allowBackPress()) {
+                super.onBackPressed();
+            }
+            else if (backPressed + 2000 > System.currentTimeMillis()){
                 backToast.cancel();
                 super.onBackPressed();
                 return;
@@ -82,7 +86,7 @@ public class MainActivityAdmin extends AppCompatActivity
 
         if (id == R.id.nav_admin_view_roaster) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ViewRosterAdminFragment()).commit();
-        } else if (id == R.id.nav_admin_create_roaster) {
+        } else if (id == R.id.nav_admin_options) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UserListFragment()).commit();
 
         } else if(id == R.id.nav_admin_create_user) {
@@ -92,7 +96,7 @@ public class MainActivityAdmin extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ChangePasswordFragment()).commit();
         }
         else if (id == R.id.nav_admin_edit_details) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new EditDeatilsFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new EditDetailsFragment()).commit();
         }
         else if (id == R.id.nav_admin_set_availability) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SetAvailabilityFragment()).commit();

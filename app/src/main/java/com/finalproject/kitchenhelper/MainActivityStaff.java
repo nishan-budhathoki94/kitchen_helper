@@ -14,9 +14,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.finalproject.kitchenhelper.Fragments.ChangePasswordFragment;
-import com.finalproject.kitchenhelper.Fragments.EditDeatilsFragment;
+import com.finalproject.kitchenhelper.Fragments.EditDetailsFragment;
 import com.finalproject.kitchenhelper.Fragments.SetAvailabilityFragment;
-import com.finalproject.kitchenhelper.Fragments.ViewRosterAdminFragment;
+import com.finalproject.kitchenhelper.Fragments.ViewRosterStaffFragment;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -48,7 +48,7 @@ public class MainActivityStaff extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ViewRosterAdminFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ViewRosterStaffFragment()).commit();
     }
 
     @Override
@@ -78,9 +78,9 @@ public class MainActivityStaff extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_admin_view_roaster) {
-            // Handle the camera action
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ViewRosterAdminFragment()).commit();
+        if (id == R.id.nav_staff_view_roaster) {
+            // view roster
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ViewRosterStaffFragment()).commit();
         } else if (id == R.id.nav_staff_change_password) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new ChangePasswordFragment()).commit();
 
@@ -88,7 +88,7 @@ public class MainActivityStaff extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new SetAvailabilityFragment()).commit();
 
         }  else if (id == R.id.nav_staff_edit_details) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new EditDeatilsFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_staff,new EditDetailsFragment()).commit();
         }
 
         else if (id == R.id.nav_staff_logout) {

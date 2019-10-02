@@ -8,8 +8,8 @@
             android:id="@+id/nav_admin_view_roaster"
             android:title="View Roster" />
         <item
-            android:id="@+id/nav_admin_create_roaster"
-            android:title="Create Roster"
+            android:id="@+id/nav_admin_options"
+            android:title="@string/admin_option"
             android:icon="@drawable/ic_create_black_24dp" />
         <item
             android:id="@+id/nav_admin_create_user"

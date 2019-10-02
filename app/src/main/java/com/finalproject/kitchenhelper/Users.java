@@ -2,16 +2,19 @@ package com.finalproject.kitchenhelper;
 
 public class Users {
 
-    String name , email;
+    String name , email,type;
 
     public Users() {
         this.email = "";
         this.name = "";
+        this.type = "employee";
+
     }
 
-    public Users(String name, String ID) {
+    public Users(String name, String ID,String type) {
         this.name = name;
         this.email = ID;
+        this.type = type;
     }
 
     public String getName() {
@@ -28,5 +31,13 @@ public class Users {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

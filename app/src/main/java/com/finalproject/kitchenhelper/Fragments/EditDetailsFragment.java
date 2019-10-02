@@ -1,6 +1,5 @@
 package com.finalproject.kitchenhelper.Fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,10 +18,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.finalproject.kitchenhelper.Constants;
-import com.finalproject.kitchenhelper.Login;
-import com.finalproject.kitchenhelper.MainActivityAdmin;
-import com.finalproject.kitchenhelper.MainActivityStaff;
 import com.finalproject.kitchenhelper.R;
 import com.finalproject.kitchenhelper.VolleySingleton;
 import com.google.android.material.textfield.TextInputLayout;
@@ -35,7 +30,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EditDeatilsFragment extends Fragment {
+public class EditDetailsFragment extends Fragment {
 
     private TextInputLayout textInputPhone,textInputName;
     String name,phone;

@@ -97,6 +97,7 @@ public class SignUpFragment extends Fragment implements View.OnClickListener {
                                                     new Response.Listener<String>() {
                                                         @Override
                                                         public void onResponse(String response) {
+                                                            progressbar.setVisibility(View.INVISIBLE);
                                                             textInputName.getEditText().setText("");
                                                             textInputEmail.getEditText().setText("");
                                                             textInputConfirmEmail.getEditText().setText("");

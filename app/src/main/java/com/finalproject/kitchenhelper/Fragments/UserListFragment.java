@@ -46,6 +46,9 @@ public class UserListFragment extends Fragment {
         recyclerViewUserLIst.setLayoutManager(new LinearLayoutManager(this.getActivity()));
         adapter = new UserListAdapter(userList,this.getContext());
         recyclerViewUserLIst.setAdapter(adapter);
+        if (userList.size()>0) {
+            progressBar.setVisibility(View.INVISIBLE);
+        }
         return view;
 
     }
@@ -55,6 +58,7 @@ public class UserListFragment extends Fragment {
         fetchUserList();
         super.onCreate(savedInstanceState);
     }
+
 
     //fetch all the users from database
     public void fetchUserList(){
@@ -72,6 +76,7 @@ public class UserListFragment extends Fragment {
                                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                                 singleUser.setName(jsonObject.getString("Name").trim());
                                 singleUser.setEmail(jsonObject.getString("Email").trim());
+                                singleUser.setType(jsonObject.getString("type").trim());
                                 userList.add(singleUser);
                             }
 

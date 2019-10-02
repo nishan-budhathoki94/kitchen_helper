@@ -33,6 +33,7 @@
     <string name="delete_user">Delete User</string>
     <string name="view_availability">View Availability</string>
     <string name="done">Done</string>
+    <string name="admin_option">Admin Options</string>
 
     <string name="sunday">Sunday</string>
     <string name="monday">Monday</string>

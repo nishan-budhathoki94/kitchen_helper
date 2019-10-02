@@ -34,12 +34,13 @@ import java.util.Map;
 
 public class SetAvailabilityFragment extends Fragment {
 
-    private CheckBox alldaySun,alldayMon,alldayTue,alldayWed,alldayThurs,allDayFri,allDaySat;
+    private CheckBox allDaySun,allDayMon,allDayTue,allDayWed,allDayThurs,allDayFri,allDaySat;
     private ProgressBar progressBar;
     private Button buttonSetAvailability;
     private TextView userName;
     private Bundle args;
     private boolean insertIntoDB = true;
+    private boolean allowBackPress = false;
     private FirebaseAuth mAuth;
     private View view;
     private String server_url_get = "https://everestelectricals.com.au/kitchen_helper/get_availability.php";
@@ -55,6 +56,7 @@ public class SetAvailabilityFragment extends Fragment {
         userName = view.findViewById(R.id.textViewNameOfStaff);
         args = this.getArguments();
         if (args!= null) {
+            allowBackPress = true;
             if (args.getBoolean("isViewOnly")) {
                 buttonSetAvailability.setVisibility(View.INVISIBLE);
             }
@@ -82,11 +84,11 @@ public class SetAvailabilityFragment extends Fragment {
 
 
     public void setCheckboxes() {
-        alldaySun = view.findViewById(R.id.availabilitySundayAllDay);
-        alldayMon = view.findViewById(R.id.availabilityMondayAllDay);
-        alldayTue = view.findViewById(R.id.availabilityTuesdayAllDay);
-        alldayWed = view.findViewById(R.id.availabilityWednesdayAllDay);
-        alldayThurs = view.findViewById(R.id.availabilityThursdayAllDay);
+        allDaySun = view.findViewById(R.id.availabilitySundayAllDay);
+        allDayMon = view.findViewById(R.id.availabilityMondayAllDay);
+        allDayTue = view.findViewById(R.id.availabilityTuesdayAllDay);
+        allDayWed = view.findViewById(R.id.availabilityWednesdayAllDay);
+        allDayThurs = view.findViewById(R.id.availabilityThursdayAllDay);
         allDayFri = view.findViewById(R.id.availabilityFridayAllDay);
         allDaySat = view.findViewById(R.id.availabilitySaturdayAllDay);
     }
@@ -104,19 +106,19 @@ public class SetAvailabilityFragment extends Fragment {
                             JSONArray array = jsonObject.getJSONArray("availability");
                             JSONObject jo = array.getJSONObject(0);
                             if(jo.getString("Sunday").trim().equalsIgnoreCase("no")) {
-                                alldaySun.setChecked(false);
+                                allDaySun.setChecked(false);
                             }
                             if(jo.getString("Monday").trim().equalsIgnoreCase("no")) {
-                                alldayMon.setChecked(false);
+                                allDayMon.setChecked(false);
                             }
                             if(jo.getString("Tuesday").trim().equalsIgnoreCase("no")) {
-                                alldayTue.setChecked(false);
+                                allDayTue.setChecked(false);
                             }
                             if(jo.getString("Wednesday").trim().equalsIgnoreCase("no")) {
-                                alldayWed.setChecked(false);
+                                allDayWed.setChecked(false);
                             }
                             if(jo.getString("Thursday").trim().equalsIgnoreCase("no")) {
-                                alldayThurs.setChecked(false);
+                                allDayThurs.setChecked(false);
                             }
                             if(jo.getString("Friday").trim().equalsIgnoreCase("no")) {
                                 allDayFri.setChecked(false);
@@ -182,11 +184,11 @@ public class SetAvailabilityFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("sunday", getCheckboxText(alldaySun));
-                params.put("monday", getCheckboxText(alldayMon));
-                params.put("tuesday", getCheckboxText(alldayTue));
-                params.put("wednesday", getCheckboxText(alldayWed));
-                params.put("thursday", getCheckboxText(alldayThurs));
+                params.put("sunday", getCheckboxText(allDaySun));
+                params.put("monday", getCheckboxText(allDayMon));
+                params.put("tuesday", getCheckboxText(allDayTue));
+                params.put("wednesday", getCheckboxText(allDayWed));
+                params.put("thursday", getCheckboxText(allDayThurs));
                 params.put("friday", getCheckboxText(allDayFri));
                 params.put("saturday", getCheckboxText(allDaySat));
                 params.put("insert", String.valueOf(insertIntoDB).toLowerCase());
@@ -209,6 +211,10 @@ public class SetAvailabilityFragment extends Fragment {
         else {
             return "no";
         }
+    }
+
+    public boolean allowBackPress() {
+        return allowBackPress;
     }
 
 }
