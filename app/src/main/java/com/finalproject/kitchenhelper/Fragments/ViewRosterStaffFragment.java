@@ -92,7 +92,7 @@ public class ViewRosterStaffFragment extends Fragment {
 
 
     public void splitStartEnd(TextView start, TextView end, String wholeString) {
-        if (wholeString.equalsIgnoreCase(Constants.NOT_APPLICABLE) || wholeString.equalsIgnoreCase(Constants.SELECT_TIME)){
+        if (wholeString.equalsIgnoreCase(Constants.NOT_APPLICABLE) || wholeString.equalsIgnoreCase(Constants.SELECT_TIME) || wholeString.contains(Constants.DAY_OFF)){
             start.setText(wholeString);
             end.setText(wholeString);
         }
