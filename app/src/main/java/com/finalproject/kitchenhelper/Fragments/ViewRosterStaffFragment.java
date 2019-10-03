@@ -98,7 +98,7 @@ public class ViewRosterStaffFragment extends Fragment {
         }
         else {
             start.setText(wholeString.substring(0,8));
-            end.setText(wholeString.substring(8,17));
+            end.setText(wholeString.substring(9,17));
             start.setTextColor(getResources().getColor(R.color.colorAccent));
             end.setTextColor(getResources().getColor(R.color.colorAccent));
         }
