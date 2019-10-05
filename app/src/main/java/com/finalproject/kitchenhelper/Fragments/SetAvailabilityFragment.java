@@ -40,6 +40,7 @@ public class SetAvailabilityFragment extends Fragment {
     private TextView userName;
     private Bundle args;
     private boolean insertIntoDB = true;
+    private String current_email;
     private FirebaseAuth mAuth;
     private View view;
     private String server_url_get = "https://everestelectricals.com.au/kitchen_helper/get_availability.php";
@@ -53,6 +54,8 @@ public class SetAvailabilityFragment extends Fragment {
         progressBar = view.findViewById(R.id.progressBarSetAvailability);
         buttonSetAvailability = view.findViewById(R.id.buttonSetAvailability);
         userName = view.findViewById(R.id.textViewNameOfStaff);
+        mAuth = FirebaseAuth.getInstance();
+        current_email = mAuth.getCurrentUser().getEmail();
         args = this.getArguments();
         if (args!= null) {
             if (args.getBoolean("isViewOnly")) {
@@ -62,8 +65,10 @@ public class SetAvailabilityFragment extends Fragment {
                 userName.setText("Displaying Availability of:"+args.getString("name"));
                 userName.setVisibility(View.VISIBLE);
             }
+            if (!args.getString("email").isEmpty()){
+                current_email = args.getString("email");
+            }
         }
-        mAuth = FirebaseAuth.getInstance();
         getCurrentAvailability();
         buttonSetAvailability.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,7 +134,7 @@ public class SetAvailabilityFragment extends Fragment {
 
                         } catch (JSONException e) {
                             progressBar.setVisibility(View.INVISIBLE);
-                            Toast.makeText(getContext(), "You have not set your availability yet", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), "Availability has not been set yet", Toast.LENGTH_LONG).show();
                             e.printStackTrace();
                         }
                     }
@@ -146,7 +151,7 @@ public class SetAvailabilityFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("email", mAuth.getCurrentUser().getEmail());
+                params.put("email", current_email);
                 return params;
             }
         };

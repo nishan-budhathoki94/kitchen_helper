@@ -74,6 +74,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
                 Bundle argsViewOnly = new Bundle();
                 argsViewOnly.putBoolean("isViewOnly",true);
                 argsViewOnly.putString("name",user.getName());
+                argsViewOnly.putString("email",user.getEmail());
                 viewAvailabilityFragment.setArguments(argsViewOnly);
                 activityViewAvailability.getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, viewAvailabilityFragment, Constants.DialogFragment)
