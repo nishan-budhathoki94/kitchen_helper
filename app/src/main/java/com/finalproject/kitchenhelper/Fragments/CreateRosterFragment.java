@@ -249,6 +249,10 @@ public class CreateRosterFragment extends Fragment {
                         public void onCancel(DialogInterface dialog) {
                             Toast.makeText(getActivity(), "Cancelled",
                                     Toast.LENGTH_SHORT).show();
+                            if (!selectTime.getText().toString().equalsIgnoreCase(Constants.DAY_OFF)) {
+                                selectTime.setText(Constants.SELECT_TIME);
+                                selectTime.setTextColor(getResources().getColor(R.color.colorPrimary));
+                            }
                         }
                     });
                     mTimePicker.setTitle("Select Time");
